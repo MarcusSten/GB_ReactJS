@@ -1,0 +1,66 @@
+body { font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; }
+
+.App {
+  text-align: center;
+  background-color: #fff;
+  min-height: 100vh;
+  margin-top: 20px;
+}
+
+.App-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: rgb(136, 134, 134);
+  font-size: 30px;
+}
+
+.App-header h3 {
+  text-decoration: underline;
+  color: rgba(126, 42, 42, 0.884);
+}
+
+main {
+  text-align: left;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.msgList {
+  padding: 12px 10px;
+  border-bottom: dashed 1px #000;
+  width: 30vw;
+  display: flex;
+  gap: 20px;
+  background-color: #cccccc44;
+}
+
+.msgList:nth-child(2n) {
+  background-color: #ccccccff;
+}
+
+.addMsgForm {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  padding: 10px;
+  gap: 20px;
+}
+
+.addMsgForm label {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.addMsgForm input, .addMsgForm textarea {
+  width: 100%;
+}
+
+.addMsgForm input[type="submit"] {
+  padding: 10px;
+}
