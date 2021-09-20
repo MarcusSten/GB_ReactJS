@@ -1,9 +1,10 @@
 import './addMsgForm.css';
-import React from 'react';
+import React, { useRef } from 'react';
 import { Button, TextField } from "@material-ui/core";
 
 export default function AddMsgForm({ submitHandler, authors }) {
     const [ msgVal, setMsgVal ] = React.useState("");
+    const textAreaEl = useRef(null);
 
     const handlerMsgVal = (e) => {
         setMsgVal(e.target.value);
@@ -13,16 +14,10 @@ export default function AddMsgForm({ submitHandler, authors }) {
         e.preventDefault();
 
         if (submitHandler) {
-            const msgField = document.querySelector("#outlined-multiline-static");
-
-            if(msgField.value !== "") {
+            if(msgVal !== "") {
                 submitHandler(msgVal);
-            } else {
-                msgField.error = true;
-                msgField.helperText = "Значение не должно быть пустым!";
             }
-
-            msgField.focus();
+            textAreaEl.current.focus();
             setMsgVal("");
         }
     }
@@ -41,12 +36,13 @@ export default function AddMsgForm({ submitHandler, authors }) {
             id="outlined-multiline-static"
             label="Text"
             multiline
-            rows={1}
+            rows={4}
             variant="outlined"
             value={ msgVal }
             onChange={ handlerMsgVal }
             autoFocus
             required
+            ref={ textAreaEl }
             />
           <Button variant="outlined" color="default" type="submit">TO SEND</Button>
         </form>
