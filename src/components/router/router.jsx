@@ -1,10 +1,10 @@
 import "../../App.css";
-
 import React from "react";
 import { Switch, Route } from "react-router";
 import { Link } from "react-router-dom";
 import App from "../../App.js";
 import Profile from "../../components/profile/index"
+import Chat from "../Chat/Chat";
 
 export default function Router() {
     return (
@@ -30,7 +30,7 @@ export default function Router() {
                     </div>
                 </Route>
                 <Route path="/chats" component={ App } />
-                <Route path="/chats/:chatId" component={ App } />
+                <Route path="/chats/:chatId" component={ Chat } />
                 <Route path="/profile" component={ Profile } />
                 <Route>
                     <h1>404: page not found!</h1>

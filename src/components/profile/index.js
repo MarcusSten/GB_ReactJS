@@ -1,7 +1,6 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { store } from "../../store/index"
-import { changeIsOnline, changeName } from "../../store/actions/profile";
+import { changeIsOnline } from "../../store/actions/profile";
 
 export default function Profile() {
 
