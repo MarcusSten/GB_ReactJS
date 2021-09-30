@@ -5,7 +5,7 @@ import Message from '../../components/Message/Message'
 import AddMsgForm from "../../components/AddMsgForm/AddMsgForm"
 import AUTHORS from "../../components/AddMsgForm/constants";
 import { useDispatch, useSelector } from 'react-redux';
-import { addMessage } from '../../store/actions/messages';
+import { addMessage, sendMessageToBot } from '../../store/actions/messages';
 
 export default function Chat() {
     const match = useRouteMatch("/chats/:chatId");
@@ -24,13 +24,11 @@ export default function Chat() {
     }
 
     const submitHandler = (msg) => {
-      dispatch(
-        addMessage(chatId, {
-            id: `${getCnt(messageList)}`,
-            author: AUTHORS.ME,
-            text: msg,
-        })
-      )
+      dispatch(sendMessageToBot(chatId, {
+        id: `${getCnt(messageList)}`,
+        author: AUTHORS.ME,
+        text: msg,
+      }));
     };
 
     return (

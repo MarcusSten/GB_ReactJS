@@ -1,8 +1,8 @@
 import { ADD_CHAT, REMOVE_CHAT } from "../actions/chats";
 
 const initialState = {
-    '1001': {
-        id: '1001',
+    '1': {
+        id: '1',
         name: 'React chat!'
     }
 }
