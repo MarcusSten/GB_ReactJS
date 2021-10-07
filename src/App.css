@@ -46,13 +46,24 @@ main {
   margin: 0 auto;
 }
 
-.profile-block p{
+.profile-block {
   width: 50%;
   padding-top: 50px;
   margin: 0 auto;
   text-align: center;
   font-size: 20px;
   border: solid 1px #cccccc22;
+  box-shadow: none;
+}
+
+.profile-block h3 {
+  color:rgba(126, 42, 42, 0.884);
+  font-size: 25px;
+}
+
+.profile-block p {
+  background-color: #cccccca4;
+  padding: 4px 20px;
   box-shadow: none;
 }
 

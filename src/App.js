@@ -23,7 +23,7 @@ function App() {
     return !arr.includes(findId) ? "Нет такого чата!" : "";
   }
 
-  const [ curChat, setCurChat ] = React.useState(chatList[0]);
+  const [ curChat, setCurChat ] = React.useState(null !== match ? match.params.chatId : chatList[0]);
 
   const handleChangeChat = chat => setCurChat(chat);
 
