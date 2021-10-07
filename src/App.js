@@ -10,18 +10,9 @@ import Input from "./components/Input/input";
 import { addChat, removeChat } from './store/actions/chats';
 
 function App() {
-  const { chatId } = useParams();
   const match = useRouteMatch("/chats/:chatId");
-
   const chatList = useSelector(state => state.chats);
   const dispatch = useDispatch();
-  
-  const wrongChat = (match) => {
-    const findId = null !== match ? match.params.chatId : 0;
-    let arr = [];
-    for(let i = 0; i < chatList.length; i++) arr.push(chatList[i].id);
-    return !arr.includes(findId) ? "Нет такого чата!" : "";
-  }
 
   const [ curChat, setCurChat ] = React.useState(null !== match ? match.params.chatId : "");
 
