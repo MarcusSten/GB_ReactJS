@@ -12,7 +12,6 @@ export default function profileReducer(state = initialState, action) {
             return {
                 ...state,
                 name: action.payload.name
-                // showName: !state.showName
             }
         }
         case CHANGE_IS_ONLINE: {

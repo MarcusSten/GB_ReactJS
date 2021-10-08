@@ -1,16 +1,18 @@
 import './chat.css';
-
 import React from 'react';
+import { useParams, useRouteMatch } from 'react-router'
 import Message from '../../components/Message/Message'
 import AddMsgForm from "../../components/AddMsgForm/AddMsgForm"
-
-const AUTHORS = {
-    ME: "Me",
-    BOT: "Robot"
-}
+import AUTHORS from "../../components/AddMsgForm/constants";
+import { useDispatch, useSelector } from 'react-redux';
+import { addMessage } from '../../store/actions/messages';
 
 export default function Chat() {
-    const [ messageList, setMessageList ] = React.useState([]);
+    const match = useRouteMatch("/chats/:chatId");
+    const chatId = match.params.chatId;
+
+    const messageList = useSelector((state) => state.messages[chatId] || [])
+    const dispatch = useDispatch()
     
     const getCnt = (list = []) => {
         if (list.length === 0) return 1;
@@ -20,24 +22,15 @@ export default function Chat() {
         }
         return Math.max.apply(null, idArr) + 1;
     }
-    
-    React.useEffect(() => {
-        if( messageList.length && 
-            messageList[messageList.length - 1].author !== AUTHORS.BOT) {
-          setTimeout(() => {
-            setMessageList((currMessageList) => [
-              ...currMessageList,
-              { id: getCnt(currMessageList), author: AUTHORS.BOT, message: "Good joke, bro!" }
-            ])
-          }, 1500)
-        }
-    }, [ messageList ]);
 
     const submitHandler = (msg) => {
-        setMessageList(currMessageList => ([
-            ...currMessageList, 
-            { id: getCnt(currMessageList), author: AUTHORS.ME, message: msg }
-        ]));
+      dispatch(
+        addMessage(chatId, {
+            id: `${getCnt(messageList)}`,
+            author: AUTHORS.ME,
+            text: msg,
+        })
+      )
     };
 
     return (
@@ -45,7 +38,7 @@ export default function Chat() {
         <div className="chatBlock">
           { messageList.map((msg) => 
               <div key={ msg.id } className="msgList">
-                  <span>{ msg.author }:</span> <Message text={ msg.message } />
+                  <span>{ msg.author }:</span> <Message text={ msg.text } />
               </div>
           ) }
         </div>
