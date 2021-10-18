@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import App from "../../App.js";
 import Profile from "../../components/profile/index"
 import Chat from "../Chat/Chat";
+import Spacenews from "../Spacenews/Spacenews";
 
 export default function Router() {
     return (
@@ -20,6 +21,9 @@ export default function Router() {
                     <li>
                         <Link to="/profile">Profile</Link>
                     </li>
+                    <li>
+                        <Link to="/spacenews">Space News!</Link>
+                    </li>
                 </ul>
             </header>
             <Switch>
@@ -32,6 +36,7 @@ export default function Router() {
                 <Route path="/chats" component={ App } />
                 <Route path="/chats/:chatId" component={ Chat } />
                 <Route path="/profile" component={ Profile } />
+                <Route path="/spacenews" component={ Spacenews } />
                 <Route>
                     <h1>404: page not found!</h1>
                 </Route>
