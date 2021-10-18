@@ -2,7 +2,7 @@ import { ADD_MESSAGE } from "../actions/messages";
 import AUTHORS from "../../components/AddMsgForm/constants";
 
 const initialState = {
-    '1001': [
+    '1': [
         { id: 'message1', text: 'Hello! This is my biggest project on React', author: AUTHORS.ME },
         { id: 'message2', text: 'Good joke, bro!', author: AUTHORS.BOT }
     ]
