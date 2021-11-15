@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Router from "./components/router/router"
 import { Provider } from "react-redux";
 import { store } from "./store/index.js"
+import "./services/firebase";
 
 ReactDOM.render(
   <Provider store={ store }>
